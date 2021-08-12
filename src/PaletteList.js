@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import seedColors from "./seedColors";
 import { Link } from 'react-router-dom';
-import './Home.css'
+import './PaletteList.css'
 
 
 export class Home extends Component {
     render() {
-        const links = seedColors.map(p => (
+        const {palettes} = this.props;
+        const links = palettes.map(p => (
             <li className="Home-items">
                 <Link className="Home-links" to={`/palettes/${p.id}`}>
                     {p.paletteName.toUpperCase()} <span className="Home-emoji">{p.emoji}</span>
