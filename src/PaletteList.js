@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import MiniPalette from './MiniPalette';
 import './PaletteList.css'
 
 
@@ -16,6 +17,7 @@ export class Home extends Component {
 
         return (
             <div className="Home">
+                <MiniPalette />
                 <h1 className="Home-title">Color Palettes</h1>
                <ul className="Home-palettes">
                     {links}
