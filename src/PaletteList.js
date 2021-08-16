@@ -1,30 +1,57 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import MiniPalette from './MiniPalette';
-import './PaletteList.css'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import MiniPalette from "./MiniPalette";
+import { withStyles } from "@material-ui/core";
 
+const styles = {
+    root: {
+        backgroundColor: "blue",
+        height: "100vh",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center"
+    },
+    container: {
+        width: "50%",
+        display: "flex",
+        flexDirection: "column",
+        flexWrap: "wrap",
+        alignitems: "flex-start",
 
-export class Home extends Component {
-    render() {
-        const {palettes} = this.props;
-        const links = palettes.map(p => (
-            <li className="Home-items">
-                <Link className="Home-links" to={`/palettes/${p.id}`}>
-                    {p.paletteName.toUpperCase()} <span className="Home-emoji">{p.emoji}</span>
-                </Link>
-            </li>
-        ));
-
-        return (
-            <div className="Home">
-                <MiniPalette />
-                <h1 className="Home-title">Color Palettes</h1>
-               <ul className="Home-palettes">
-                    {links}
-                </ul>
-            </div>
-        )
+    },
+    nav: {
+        display: "flex",
+        width: "100%",
+        jusitfyContent: "space-between",
+        color: "white"
+    },
+    palettes: {
+        boxSizing: "border-box",
+        width: "100%",
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 30%)",
+        gridGap: "5%"
     }
 }
 
-export default Home
+export class PaletteList extends Component {
+	render() {
+		const { palettes, classes } = this.props;
+		const miniPalettes = palettes.map(p => <MiniPalette key={p.id} {...p} />);
+
+		return (
+			<div className={classes.root}>
+                <div className={classes.container}>
+                    <nav className={classes.nav}>
+				        <h1>Color Palettes</h1>
+                    </nav>
+                    <div className={classes.palettes}>
+                        {miniPalettes}
+                    </div>
+                </div>
+			</div>
+		);
+	}
+}
+
+export default withStyles(styles)(PaletteList); 
