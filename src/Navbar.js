@@ -17,8 +17,7 @@ class Navbar extends Component {
 			format,
 			handleChange,
 			closeSnackBar,
-			open,
-			isShow
+			open
 		} = this.props;
 
 		return (
@@ -26,7 +25,7 @@ class Navbar extends Component {
 				<div className="logo">
 					<Link to="/">reactcolorpicker</Link>
 				</div>
-				{isShow && <div className="slider-container">
+				<div className="slider-container">
 					<span className="slider-level">Level: {level} </span>
 					<div className="slider">
 						<Slider
@@ -37,8 +36,7 @@ class Navbar extends Component {
 							onAfterChange={changeLevel}
 						/>
 					</div>
-				</div> }
-				
+				</div>
 				<div className="select-container">
 					<Select value={format} onChange={handleChange}>
 						<MenuItem value="hex">HEX - #ffffff</MenuItem>
