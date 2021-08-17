@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ColorBox from './ColorBox';
 import Navbar from './Navbar';
 
 class SingleColorPalette extends Component {
@@ -16,7 +17,19 @@ class SingleColorPalette extends Component {
 		this.setState({open: false});
 	}
     render() {
-        const {open, format} = this.state
+        const {open, format} = this.state;
+        const {palette, match} = this.props
+        const generateColors = () => {
+            let colors = []
+            for(let idx in palette.colors){
+               for (let color of palette.colors[idx]){
+                (color.id === match.params.colorId) && colors.push(color)
+               }
+            };
+            console.log(colors)
+            return colors;
+        }
+        let allColors = generateColors().filter(c => c.hex !== "#ffffff");
         return (
             <div>
                 <Navbar 
@@ -27,6 +40,11 @@ class SingleColorPalette extends Component {
                     isShow={false} 
 				/>
                 <h1>Hellos </h1>
+                <div>
+                    {allColors.map(color => (
+                        <ColorBox name={color.name} background={color.[format]} />
+                    ))}
+                </div>
             </div>
         )
     }

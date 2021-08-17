@@ -42,8 +42,8 @@ function App() {
 					render={routerProps => (
 						<SingleColorPalette
 							{...routerProps}
-							palette={findPalette(routerProps.match.params.paletteId)}
-							color={findColor(routerProps.match.params.paletteId,routerProps.match.params.colorId)}
+							palette={generatePalette(findPalette(routerProps.match.params.paletteId))}
+							// color={findColor(routerProps.match.params.paletteId,routerProps.match.params.colorId)}
 						/>
 					)}
 				/>
