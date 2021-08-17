@@ -3,6 +3,7 @@ import seedColors from "./seedColors";
 import { generatePalette } from "./ColorHelpers";
 import { Switch, Route, NavLink } from "react-router-dom";
 import PaletteList from "./PaletteList";
+import SingleColorPalette from "./SingleColorPalette";
 
 function findPalette(id) {
 	return seedColors.find(palette => palette.id === id);
@@ -38,7 +39,7 @@ function App() {
 						<SingleColorPalette
 							{...routerProps}
 							palette={generatePalette(findPalette(routerProps.match.params.paletteId))}
-							// color={findColor(routerProps.match.params.paletteId,routerProps.match.params.colorId)}
+							colorId={routerProps.match.params.colorId}
 						/>
 					)}
 				/>

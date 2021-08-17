@@ -5,12 +5,28 @@ import Navbar from './Navbar';
 class SingleColorPalette extends Component {
     constructor(props) {
 		super(props);
-		this.state = {format: 'hex', open: false };
+        this._shades = this.gatherShades(this.props.palette, this.props.colorId)
+		this.state = {};
+    }
+    gatherShades(palette, colorToFilterBy){
+        let shades = [];
+        let allColors = palette.colors
+        for(let key in allColors ){
+            shades = shades.concat(
+                allColors[key].filter(color => color.id === colorToFilterBy)
+            )
+        }
+        return shades.slice(1);
     }
     render() {
+        const colorBoxes = this._shades.map(color => (
+            <ColorBox key={color.name} name={color.name} background={color.hex} showLink={false} />
+        ))
         return (
-            <div>
-                
+            <div className="Palette">
+                <div className="Palette-colors">
+                    {colorBoxes}
+                </div>
             </div>
         )
     }

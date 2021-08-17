@@ -20,7 +20,7 @@ class ColorBox extends Component {
 		this.props.history.push(`/palettes/${this.props.palette}/${this.props.id}`)
 	}
 	render() {
-		const { name, background } = this.props;
+		const { name, background,showLink } = this.props;
 		const { copied } = this.state;
 		return (
 			<CopyToClipboard text={background} onCopy={this.changeCopyState}>
@@ -39,7 +39,10 @@ class ColorBox extends Component {
 						</div>
 						<button className="copy-button">Copy</button>
 					</div>
-					<span onClick={this.goToMore} className="see-more">More</span>
+					{showLink && (
+						<span onClick={this.goToMore} className="see-more">More</span>
+					)}
+					
 				</div>
 			</CopyToClipboard>
 		);
