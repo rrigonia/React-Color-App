@@ -3,9 +3,14 @@ import seedColors from "./seedColors";
 import { generatePalette } from "./ColorHelpers";
 import { Switch, Route, NavLink } from "react-router-dom";
 import PaletteList from "./PaletteList";
+import SingleColorPalette from "./SingleColorPalette";
 
 function findPalette(id) {
 	return seedColors.find(palette => palette.id === id);
+}
+function findColor(pId, cId) {
+	const palette = seedColors.find(palette => palette.id === pId);
+	return palette.colors.find(color => color.name.toLowerCase() === cId);
 }
 
 function App() {
@@ -34,7 +39,13 @@ function App() {
 				<Route
 					exact
 					path="/palettes/:paletteId/:colorId"
-					render={routerProps => <h1>Single Color Page</h1>}
+					render={routerProps => (
+						<SingleColorPalette
+							{...routerProps}
+							palette={findPalette(routerProps.match.params.paletteId)}
+							color={findColor(routerProps.match.params.paletteId,routerProps.match.params.colorId)}
+						/>
+					)}
 				/>
 			</Switch>
 		</div>

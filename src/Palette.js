@@ -37,7 +37,8 @@ class Palette extends Component {
 					level={level} 
 					changeLevel={this.changeLevel} 
 					handleChange={this.changeFormat} 
-					closeSnackBar={this.closeSnackBar} 
+					closeSnackBar={this.closeSnackBar}
+					isShow="true" 
 				/>
 				<div className="Palette-colors">{colorBoxes}</div>
 				<footer className="Palette-footer">
