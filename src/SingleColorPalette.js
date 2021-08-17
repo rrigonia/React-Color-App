@@ -30,7 +30,7 @@ class SingleColorPalette extends Component {
 	}
 	render() {
         const {open, format} = this.state;
-        const {palette} = this.props
+        const {palette, history} = this.props
 		const colorBoxes = this._shades.map(color => (
 			<ColorBox
 				key={color.name}
@@ -41,7 +41,7 @@ class SingleColorPalette extends Component {
 		));
         
 		return (
-			<div className="Palette">
+			<div className="SingleColorPalette Palette">
 				<Navbar
 					open={open}
 					format={format}
@@ -49,7 +49,12 @@ class SingleColorPalette extends Component {
 					closeSnackBar={this.closeSnackBar}
                     showSlider={false}
 				/>
-				<div className="Palette-colors">{colorBoxes}</div>
+				<div className="Palette-colors">
+                    {colorBoxes}
+                    <div className="go-back ColorBox">
+                            <button onClick={history.goBack} className="go-back-button">GO BACK</button>
+                    </div>
+                </div>
                 <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
 			</div>
 		);

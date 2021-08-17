@@ -51,7 +51,6 @@ function MiniPalette(props) {
 			key={color.name}
 		/>
 	))
-	console.log(props)
 	return (
 		<div className={classes.root} onClick={props.handleClick}>
 			<div className={classes.colors}>

@@ -57,7 +57,7 @@ class Navbar extends Component {
 						</span>
 					}
 					ContentProps={{
-						"aria-describedy" : "message-id"
+						"aria-describedby" : "message-id"
 					}}
                     onClose={closeSnackBar}
 					action={[
