@@ -38,14 +38,14 @@
 	cursor: pointer;
 }
 
-.copy-button{
+/* .copy-button{
 	opacity: 0;
-}
+} */
 
-.ColorBox:hover .copy-button {
+/* .ColorBox:hover .copy-button {
 	opacity: 1;
 	transition: 0.5s;
-}
+} */
 
 .box-content {
 	position: absolute;
@@ -66,19 +66,6 @@
 color: rgba(0,0,0,0.5);
 }
 
-.see-more {
-	position: absolute;
-	border: none;
-	bottom: 0%;
-	right: 0%;
-	background-color: rgba(255, 255, 255, 0.3);
-	width: 60px;
-	height: 30px;
-	text-align: center;
-	line-height: 30px;
-	text-transform: uppercase;
-	color: white;
-}
 
 .copy-overlay {
 	opacity: 0;
