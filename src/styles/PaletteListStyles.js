@@ -11,7 +11,7 @@ export default {
         display: "flex",
         flexDirection: "column",
         flexWrap: "wrap",
-        alignitems: "flex-start",
+        alignItems: "flex-start",
 
     },
     nav: {
