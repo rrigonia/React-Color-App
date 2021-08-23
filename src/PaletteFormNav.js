@@ -27,7 +27,7 @@ const styles = theme => ({
 		}),
 		flexDirection: "row",
 		justifyContent: "space-between",
-		hight: "64px"
+		height: "64px"
 	},
 	appBarShift  : {
 		width      : `calc(100% - ${drawerWidth}px)`,
@@ -45,7 +45,6 @@ const styles = theme => ({
 		display : "none"
 	},
 	navBtns: {
-
 	}
 })
 
