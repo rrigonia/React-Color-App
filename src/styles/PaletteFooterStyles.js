@@ -1,4 +1,4 @@
-export default {
+const styles = {
 	PaletteFooter: {
 		display: "flex",
 		justifyContent: "flex-end",
@@ -13,3 +13,5 @@ export default {
 		margin: "0 1rem",
 	}
 };
+
+export default styles ;

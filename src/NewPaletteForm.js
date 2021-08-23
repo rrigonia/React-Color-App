@@ -103,8 +103,16 @@ class NewPaletteForm extends Component {
 			this.state.colors.every(({ color }) => color !== this.state.currentColor)
 		);
 		ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
-			this.props.palettes.every(({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase())
+			this.props.palettes.every(
+				({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
+			)
 		);
+	}
+
+	removeColor(colorName) {
+		this.setState({
+			colors : this.state.colors.filter(c => c.name !== colorName)
+		});
 	}
 
 	handleDrawerOpen = () => {
@@ -171,21 +179,17 @@ class NewPaletteForm extends Component {
 							Persistent drawer
 						</Typography>
 						<ValidatorForm onSubmit={this.handleSubmit}>
-						<TextValidator
-							value={this.state.newPaletteName}
-							label="Palette Name"
-							onChange={this.handleChange}
-							name="newPaletteName"
-							validators={["required", "isPaletteNameUnique"]}
-							errorMessages={["Enter a Palette Name", "Name already used"]}
-						/>
-						<Button
-							type="submit"
-							variant="contained"
-							color="primary"
-						>
-							Save Palette
-						</Button>
+							<TextValidator
+								value={this.state.newPaletteName}
+								label="Palette Name"
+								onChange={this.handleChange}
+								name="newPaletteName"
+								validators={[ "required", "isPaletteNameUnique" ]}
+								errorMessages={[ "Enter a Palette Name", "Name already used" ]}
+							/>
+							<Button type="submit" variant="contained" color="primary">
+								Save Palette
+							</Button>
 						</ValidatorForm>
 					</Toolbar>
 				</AppBar>
@@ -247,7 +251,12 @@ class NewPaletteForm extends Component {
 					<div className={classes.drawerHeader} />
 
 					{this.state.colors.map(color => (
-						<DraggableColorBox color={color.color} name={color.name} />
+						<DraggableColorBox
+							color={color.color}
+							name={color.name}
+							handleClick={() => this.removeColor(color.name)}
+							key={color.name}
+						/>
 					))}
 				</main>
 			</div>
