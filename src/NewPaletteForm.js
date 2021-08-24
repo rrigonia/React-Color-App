@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
+import styles from "./styles/NewPaletteFormStyles";
 import {
 	Drawer,
 	Typography,
@@ -14,60 +15,6 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import DraggableColorList from "./DraggableColorList";
 import { arrayMove } from "react-sortable-hoc";
 
-const drawerWidth = 400;
-
-const styles = theme => ({
-	root: {
-		display: "flex"
-	},
-	drawer: {
-		width: drawerWidth,
-		flexShrink: 0
-	},
-	drawerPaper: {
-		width: drawerWidth,
-		display: "flex",
-		alignItems: "center"
-	},
-	drawerHeader: {
-		display: "flex",
-		alignItems: "center",
-		padding: "0 8px",
-		...theme.mixins.toolbar,
-		justifyContent: "flex-end"
-	},
-	content: {
-		flexGrow: 1,
-		height: "calc(100vh - 64px)",
-		padding: theme.spacing(3),
-		transition: theme.transitions.create("margin", {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.leavingScreen
-		}),
-		marginLeft: -drawerWidth
-	},
-	contentShift: {
-		transition: theme.transitions.create("margin", {
-			easing: theme.transitions.easing.easeOut,
-			duration: theme.transitions.duration.enteringScreen
-		}),
-		marginLeft: 0
-	},
-	container: {
-		width: "90%",
-		display: "flex",
-		flexDirection: "column",
-		justifyContent: "center",
-		alignItems: "center",
-		height: "100%"
-	},
-	buttons: {
-		width: "100%"
-	},
-	button: {
-		width: "50%"
-	}
-});
 
 class NewPaletteForm extends Component {
 	static defaultProps = {
@@ -81,7 +28,6 @@ class NewPaletteForm extends Component {
 			colors: this.props.palettes[0].colors
 		};
 		this.addNewColor = this.addNewColor.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.removeColor = this.removeColor.bind(this);
 		this.clearColors = this.clearColors.bind(this);
@@ -112,11 +58,6 @@ class NewPaletteForm extends Component {
 		this.setState(st => ({
 			colors: [ ...st.colors, newColor ]
 		}));
-	}
-	handleChange(evt) {
-		this.setState({
-			[evt.target.name]: evt.target.value
-		});
 	}
 	handleSubmit(newPalette) {
 		newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
