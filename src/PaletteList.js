@@ -11,8 +11,8 @@ export class PaletteList extends Component {
         this.props.history.push(`/palettes/${id}`)
     }
 	render() {
-		const { palettes, classes } = this.props;
-		const miniPalettes = palettes.map(p => <MiniPalette key={p.id} {...p} handleClick={() => this.goToPalette(p.id)} />);
+		const { palettes, classes, deletePalette } = this.props;
+		const miniPalettes = palettes.map(p => <MiniPalette deletePalette={deletePalette} key={p.id} {...p} handleClick={() => this.goToPalette(p.id)} />);
 
 		return (
 			<div className={classes.root}>
