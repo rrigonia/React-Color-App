@@ -66,7 +66,7 @@ class PaletteFormNav extends Component {
 							Create a Palette
 						</Typography>
 					</Toolbar>
-					<div classNamme={classes.navBtns}>
+					<div className={classes.navBtns}>
 						<Link to='/' className={classes.link}>
 							<Button
 								className={classes.button}
@@ -82,7 +82,7 @@ class PaletteFormNav extends Component {
 							color='primary'
 							onClick={this.showForm}
 						>
-							SavePalette
+							Save
 						</Button>
 					</div>
 				</AppBar>
