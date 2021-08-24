@@ -47,12 +47,12 @@ const styles = theme => ({
 	},
 	navBtns: {
 		marginRight: "1rem",
-		"& a": {
-			textDecoration: "none"
-		}
 	},
 	button: {
 		margin: "0 0.5rem"
+	},
+	link: {
+		textDecoration: "none"
 	}
 });
 
@@ -65,6 +65,7 @@ class PaletteFormNav extends Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.showForm = this.showForm.bind(this);
+		this.hideForm = this.hideForm.bind(this);
 	}
 	handleChange(evt) {
 		this.setState({
@@ -74,6 +75,11 @@ class PaletteFormNav extends Component {
 	showForm() {
 		this.setState({
 			formShowing: true
+		});
+	}
+	hideForm() {
+		this.setState({
+			formShowing: false
 		});
 	}
 	render() {
@@ -103,7 +109,7 @@ class PaletteFormNav extends Component {
 						</Typography>
 					</Toolbar>
 					<div classNamme={classes.navBtns}>
-						<Link to='/'>
+						<Link to='/' className={classes.link}>
 							<Button
 								className={classes.button}
 								variant='contained'
@@ -123,7 +129,7 @@ class PaletteFormNav extends Component {
 					</div>
 				</AppBar>
 				{this.state.formShowing && (
-					<PaletteMetaForm palettes={palettes} handleSubmit={handleSubmit} />
+					<PaletteMetaForm palettes={palettes} handleSubmit={handleSubmit} hideForm={this.hideForm} />
 				)}
 			</div>
 		);
