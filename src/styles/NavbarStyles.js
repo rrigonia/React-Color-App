@@ -26,13 +26,16 @@ const styles = {
 	selectContainer:{
 		marginLeft: "auto",
 		marginRight: "1rem",
+		[sizes.down("sm")]: {
+			transform: "scale(0.8)"
+		}
 	},
 	slider: {
 		width: "340px",
 		margin: "0 10px",
 		display: "inline-block",
 		"& .rc-slider-rail": {
-			height: "8px"
+			height: "8px",
 		},
 		"& .rc-slider-track": {
 			backgroundColor: "transparent"
@@ -44,11 +47,27 @@ const styles = {
 			boxShadow: "none",
 			width: "13px",
 			height: "13px",
-			marginLeft: "-7px",
+			// marginLeft: "-7px",
 			marginTop: "-3px",
 		},
 		[sizes.down("md")]: {
+			width: "230px"
+		},
+		[sizes.down("sm")]: {
 			width: "150px"
+		},
+		[sizes.down("xs")]: {
+			width: "110px"
+		},
+		
+	},
+	sliderTitle: {
+		[sizes.down("sm")]: {
+			fontSize: "0.9rem"
+		},
+		[sizes.down("xs")]: {
+			fontSize: "0.9rem",
+			margin: "0 0.5rem"
 		}
 	}
 };
