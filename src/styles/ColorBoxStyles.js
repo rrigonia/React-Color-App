@@ -1,5 +1,5 @@
 import chroma from "chroma-js";
-import sizes from "./sizes"
+import sizes from "./sizes";
 
 const styles = {
 	colorBox: {
@@ -16,17 +16,16 @@ const styles = {
 		},
 		[sizes.down("lg")]: {
 			width: "25%",
-			height: props => (props.showingFullPalette ? "20%" : "33.3333%"),
+			height: props => (props.showingFullPalette ? "20%" : "33.3333%")
 		},
 		[sizes.down("md")]: {
 			width: "50%",
-			height: props => (props.showingFullPalette ? "10%" : "20%"),
+			height: props => (props.showingFullPalette ? "10%" : "20%")
 		},
-		[sizes.down("xs")]:{
+		[sizes.down("xs")]: {
 			width: "100%",
-			height: props => (props.showingFullPalette ? "5%" : "10%"),
-		},
-		
+			height: props => (props.showingFullPalette ? "5%" : "10%")
+		}
 	},
 	copyText: {
 		color: props =>
