@@ -2,6 +2,15 @@ import sizes from "./sizes";
 import bg from "./bg.svg";
 
 const styles = {
+	"@global": {
+		".fade-exit": {
+			opacity: 1
+		},
+		".fade-exit-active": {
+			opacity: 0,
+			transition: "opacity 500ms ease-out"
+		},
+	},
 	root: {
 		backgroundColor: "blue",
 		height: "100vh",
@@ -35,7 +44,7 @@ const styles = {
 		color: "white",
 		"& h1": {
 			fontSize: "2rem",
-            fontWeight: "bold",
+			fontWeight: "bold",
 			padding: "1rem 0"
 		},
 		"& a": {
