@@ -9,7 +9,7 @@ const styles = {
 		".fade-exit-active": {
 			opacity: 0,
 			transition: "opacity 500ms ease-out"
-		},
+		}
 	},
 	root: {
 		height: "100vh",
@@ -41,10 +41,15 @@ const styles = {
 		justifyContent: "space-between",
 		alignItems: "center",
 		color: "white",
+		marginTop: "1rem",
 		"& h1": {
 			fontSize: "2rem",
 			fontWeight: "bold",
-			padding: "1rem 0"
+			padding: "1rem 0",
+			[sizes.down("xs")]: {
+				fontSize: "1.5rem",
+				paddingRight: "0.5rem"
+			}
 		},
 		"& a": {
 			color: "white"

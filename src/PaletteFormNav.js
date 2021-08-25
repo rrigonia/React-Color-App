@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
-import classNames from "classnames";
 import {
 	CssBaseline,
 	AppBar,
@@ -12,7 +11,8 @@ import {
 } from "@material-ui/core";
 import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
 import PaletteMetaForm from "./PaletteMetaForm";
-import styles from "./styles/PaletteFormNavStyles"
+import classNames from "classnames";
+import styles from "./styles/PaletteFormNavStyles";
 
 class PaletteFormNav extends Component {
 	constructor(props) {
@@ -41,7 +41,13 @@ class PaletteFormNav extends Component {
 		});
 	}
 	render() {
-		const { classes, open, palettes, handleSubmit } = this.props;
+		const {
+			classes,
+			open,
+			palettes,
+			handleSubmit,
+			handleDrawerOpen
+		} = this.props;
 		const { formShowing } = this.state;
 		return (
 			<div className={classes.root}>
@@ -57,7 +63,7 @@ class PaletteFormNav extends Component {
 						<IconButton
 							color='inherit'
 							aria-label='Open drawer'
-							onClick={this.props.handleDrawerOpen}
+							onClick={handleDrawerOpen}
 							className={classNames(classes.menuButton, open && classes.hide)}
 						>
 							<AddToPhotosIcon />
@@ -87,7 +93,11 @@ class PaletteFormNav extends Component {
 					</div>
 				</AppBar>
 				{formShowing && (
-					<PaletteMetaForm palettes={palettes} handleSubmit={handleSubmit} hideForm={this.hideForm} />
+					<PaletteMetaForm
+						palettes={palettes}
+						handleSubmit={handleSubmit}
+						hideForm={this.hideForm}
+					/>
 				)}
 			</div>
 		);

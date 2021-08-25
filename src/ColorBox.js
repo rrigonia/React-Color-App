@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { withRouter } from "react-router";
 import { withStyles } from "@material-ui/core";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import classNames from "classnames";
 import styles from "./styles/ColorBoxStyles";
 

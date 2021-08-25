@@ -1,10 +1,10 @@
 import React from "react";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from "@material-ui/icons/Delete";
 import { withStyles } from "@material-ui/styles";
-import {SortableElement} from 'react-sortable-hoc';
-import styles from "./styles/DraggableColorBoxStyles.js"
+import { SortableElement } from "react-sortable-hoc";
+import styles from "./styles/DraggableColorBoxStyles.js";
 
-const DraggableColorBox = SortableElement((props) => {
+const DraggableColorBox = SortableElement(props => {
 	const { classes, color, name, handleClick } = props;
 	return (
 		<div className={classes.root} style={{ backgroundColor: color }}>
