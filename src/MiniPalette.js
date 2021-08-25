@@ -2,19 +2,23 @@ import React from "react";
 import { withStyles } from "@material-ui/core";
 import styles from "./styles/MiniPaletteStyles";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Component } from "react";
+import { PureComponent } from "react";
 
-class MiniPalette extends Component {
+class MiniPalette extends PureComponent {
 	constructor(props){
 		super(props);
 		this.handleDeletePalette = this.handleDeletePalette.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 	handleDeletePalette(e){
 		e.stopPropagation();
 		this.props.openDialog(this.props.id)
 	}
+	handleClick(){
+		this.props.goToPalette(this.props.id)
+	}
 	render() {
-		const { classes, paletteName, emoji, colors, handleClick } = this.props;
+		const { classes, paletteName, emoji, colors } = this.props;
 		const miniColorBoxes = colors.map(color => (
 			<div
 				className={classes.miniColor}
@@ -22,8 +26,9 @@ class MiniPalette extends Component {
 				key={color.name}
 			/>
 		));
+		console.log("Rendering: ", paletteName)
 		return (
-			<div className={classes.root} onClick={handleClick}>
+			<div className={classes.root} onClick={this.handleClick}>
 				<DeleteIcon
 					className={classes.deleteIcon}
 					style={{ transition: "all 0.3s ease-in-out" }}
