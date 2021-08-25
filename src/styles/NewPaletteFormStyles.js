@@ -15,7 +15,7 @@ const styles = theme => ({
 		width: drawerWidth,
 		display: "flex",
 		alignItems: "center",
-		[sizes.down("xs")]: {
+		[sizes.down("sm")]: {
 			width: "100%"
 		}
 		
@@ -52,7 +52,7 @@ const styles = theme => ({
 		justifyContent: "center",
 		alignItems: "center",
 		height: "100%",
-		[sizes.down("xs")]: {
+		[sizes.down("sm")]: {
 			width: "80%",
 			maxHeight: "100vh"
 		}

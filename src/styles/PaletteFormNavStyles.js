@@ -15,7 +15,7 @@ const styles = theme => ({
 		justifyContent: "space-between",
 		height: "64px",
 		alignItems: "center",
-		[sizes.down("xs")]: {
+		[sizes.down("sm")]: {
 			height: "55px"
 		}
 	},
@@ -42,6 +42,11 @@ const styles = theme => ({
 	},
 	button: {
 		margin: "0 0.5rem",
+		[sizes.down("md")]: {
+			margin: "0 0.2rem",
+			fontSize: "0.8rem",
+			padding: "0.3rem"
+		},
 		[sizes.down("xs")]: {
 			margin: "0 0.2rem",
 			fontSize: "0.8rem",
